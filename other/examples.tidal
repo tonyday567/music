@@ -1,0 +1,168 @@
+-- evaluate other/tidal.el
+-- tidal-mode
+
+hush
+d1 silence
+
+
+-- see merge and #
+-- could usefully make <> and be done wth it
+-- these combinators seem to be like zip with respect to params, dropping excess pattern elements
+d1 $ sound "drum drum" # speed "0.6 0.4 0.8 0.6"
+d1 $ s' "drum drum" # n "0 1" # speed "0.6 0.4"
+
+d1 $ sound "voodoo:6 drum:2 drum:1 [~ voodoo:6]" |+|
+     speed "0.3 0.2 0.4 0.3" |+|
+     vowel "o" |+|
+     shape "0.05 0.2 0.4 0.6" |+|
+     vowel "a e i o u ~"
+
+d1 $ sound "[can cp, can bd can:5]"
+
+d1 $ sound "{can can:2, can bd can:5}"
+
+d1 $ sound "{[can can] cp, can bd can:5, arpy arpy:2 ~ [arpy:4 arpy:5] arpy:5}"
+
+d1 $ sound "bd can*32 bd can*16"
+
+d1 $ sound "bd [bd arpy sn:2 arpy:2]/2"
+
+d1 $ sound "bd [bd arpy sn:2 arpy:2]*4/3"
+
+d1 $ sound "bd can? bd sn"
+
+d1 $ sound "can(3,4)"
+
+d1 $ slowcat [sound "bd sn:2" |+| vowel "[a e o]/2", sound "casio casio:1 casio:2*2"]
+
+d1 $ slow 2 $ sound "bd ~ sn bd ~ [~ bd]/2 [sn [~ bd]/2] ~"
+
+d1 $ density 2 $ sound "bd ~ sn bd ~ [~ bd]/2 [sn [~ bd]/2] ~"
+
+d1 $ rev $ chop 128 $ sound "bd ~ sn bd ~ [~ bd]/2 [sn [~ bd]/2] ~"
+
+d1 $ slow 4 $ chop 64 $ sound "breaks125"
+
+d1 $ every 3 (chop 16) $ sound "bd can sn can:4"
+
+d1 $ jux rev $ sound "bd sn*2 can [~ arpy]"
+
+d1 $ weave 16 (pan sine1) [sound "bd sn", sound "arpy ~ arpy:3", sound "can ~ ~ can:4"]
+
+d1 $ weave 16 (sound "arpy arpy:7 arpy:3") [vowel "a e i", vowel "o i", vowel "a i e o", speed "2 4 ~ 2 1"]
+
+d1 $ gain 0.6 $ 0.25 ~> sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ 0.25 <~ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d1 $ jux ((1/8) ~>) $ every 4 (0.25 <~) $ sound "arpy*3 arpy:1*2 arpy:4 [~ arpy:3]"
+
+d1 $ every 3 (slow 0.333) $ iter 3 $ sound "arpy:1 arpy:2 arpy:3"
+
+d1 $ jux (iter 4) $ sound "arpy arpy:2*2" |+| speed (slow 4 $ scale 1 1.5 sine1)
+
+d1 $ jux (density 2) $ sound (samples "drum can can" (slow 2.5 "0 1 2 4 5 6")) |+| crush "0"
+
+d1 $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "0(3,8) [5 7]") # sound "supergong"
+
+d1 $ slow 2 $ sound "hh hh hh ~ hh hh [hh hh [hh hh hh ~] ~] ~" |+| vowel "o a"
+
+d1 $ sound "arpy" # speed "[1, 1.5]"
+
+d1 $ slow 4 $ up "0 1 2 3 4 5 6 7 8 9 10 11" # sound "arpy:2"
+
+cps (126/60/4)
+
+d1 $ slow 2 $ sound "sn*8" # up (run 8)
+
+d1 $ up "0 0*2 0*4 1" # sound "[arpy, sn, bd]"
+
+d1 $ sound "bd*16" # pan sine
+
+d1 $ sound "bd*16" # pan (slow 8 $ saw)
+
+d1 $ sound "bd*4 sn*4" # speed (slow 4 $ scale 1 3 $ tri)
+
+d1 $ sound "{bd hh sn cp, arpy bass2 drum notes can}"
+
+d1 $ sound "{~ ~ ~ ~, arpy bass2 drum notes can}"
+
+d1 $ sometimesBy 0.75 (# crush 4) $ sound "bd arpy sn ~"
+
+d1 $ every 5 (|+| speed "0.5") $ every 4 (0.25 <~) $ every 3 (rev) $ sound "bd sn arpy*2 cp" # speed "[1 1.25 0.75 -1.5]/3"
+
+d1 $ whenmod 8 6 (const $ sound "arpy(3,8) bd*4") $ sound "bd sn bass2 sn"
+
+d1 $ sound (samples "arpy*8") # speed "0.25" # cut "4"
+
+d1 $ whenmod 8 6 (const $ sound "arpy(3,8) bd*4") $ sound (samples "mouth*8" (iter 4 $ run 4))
+
+t1 anticipate $ sound (samples "bd(3,8)" (run 3))
+
+t1 (xfadeIn 16) $ sound "bd(5,8)"
+
+d1 $ midinote "58*3 60 62*2" # s "bd"
+
+d1 $ whenmod 8 2 (const $ midinote "[60 55] [50 ~]" # s "hh") $ midinote "55 58 [62 62] [63 ~ 63 63]" # s "casio"
+
+
+d1 $ slow 2 $ midinote "55 58 [62 62] [63 ~ 63 63] ~ ~" # s "sn"
+
+d1 $ midinote "58*3 60 62*2" # s "dork2"
+
+d1 $ sound "drum:2 ~ [hh hh [hh hh hh]] ~"
+
+d1 $ slow 2 $ sound "bd bd bd bd bd bd [bd*4] [bd*4]" # cut "1" # vowel "o" # crush "2" # chop 16
+
+d1 $ n "<[a5,cs5,e5,g5]*3 [d5,fs5,g5,c5]>" # s "supersquare" # gain "0.7"
+d1 $ every 4 (rev) $ n "<[g5 df5 e5 a5] [gf5 d5 c5 g5]*3>" # s "supersaw"
+
+d1 $ jux (# accelerate "-0.1") $ s "supermandolin*8" # midinote "[80!6 78]/8" # sustain "1 0.25 2 1"
+
+d1 $ midinote (slow 2 $ (run 8) * 7 + 50) # s "supergong" # decay "[1 0.2]/4" # voice "[0.5 0]/8" # sustain (slow 16 $ scale 5 0.5 $ saw1)
+
+d1 $ sound "mouth:0*8" # sustain "0.125!6 1.2" # accelerate "[0.5 -0.5]/4"
+
+d1 $ s "super808 supersnare" # n (irand 5) # voice "0.2" # decay "[2 0.5]/4" # accelerate "-0.1" # sustain "0.5" # speed "[0.5 2]/4"
+
+d1 $ n (slow 8 "[[c5 e5 g5 c6]*4 [b4 e5 g5 b5]*4]") # s "superpiano" # velocity "[1.20 0.9 0.8 1]"
+
+d1 $ n (slow 8 $ "[[c4,e4,g4,c5]*4 [e4,g4,b5,e5]*4]" + "<12 7>") # s "superpiano" # velocity (slow 8 $ scale 0.8 1.1 sine1) # sustain "8"
+
+d1 $ every 16 (density 24 . (|+| midinote "24") . (# sustain "0.3") . (# attack "0.05")) $ s "supercomparator/4" # midinote ((irand 24) + 24) # sustain "8" # attack "0.5" # hold "4" # release "4" # voice "0.5" # resonance "0.9" # lfo "1" # speed "30" # pitch1 "4"
+
+d1 $ s "supernoise/8" # midinote ((irand 10) + 30) # sustain "8" # accelerate "0.5" # voice "0.5" # pitch1 "0.15" # slide "-0.5" # resonance "0.7" # attack "1" # release "20" # room "0.9" # size "0.9" # orbit "1"
+
+d1 $ brak $ sound “[feel feel:3, hc:3 hc:2 hc:4 ho:1]”
+
+d1 $ slow 2 $ degrade $ sound "[[[feel:5*8,feel*3] feel:3*8], feel*4]" # accelerate "-6" # speed "2"
+
+d1 $ fit' 1 4 (run 4) "[0 3*2 2 1 0 3*2 2 [1*8 ~]]/2" $ chop 4 $ (sound "breaks152" # unit "c")
+
+d1 $ slow 32 $ jux (rev) $ striate' 32 (1/16) $ sound "bev"
+
+d1 $ smash 3 [2,3,4] $ sound "ho ho:2 ho:3 hc"
+
+d1 $ spread ($) [fast 2, rev, slow 2, striate 3, (# speed "0.8")] $ sound "[bd*2 [~ bd]] [sn future]*2 cp jvbass*4"
+
+d1 $ slow (1/12) $ n (toScale [0, 4, 7] "0 1 2 3") # sound "supermandolin ~ ~ ~"
+
+d1 $ slow 2 $ sound "bd bd bd bd bd bd [bd*4] [bd*4]"
+
+d1 $ juxBy 0.6 (|*| speed "2") $ loopAt "<4 6 2 3>" $ chop 12 $ sound "fm:14"
+
+d1 $ stut 4 0.5 0.2 $ sound "bd sn"
+
+d1 $ sound (mask (cat ["can*8", "[cp*4 sn*4, jvbass*16]"] ))
+
+d1 $ stack [ sound "bd", sound "~ [~ [ho:2 hc/2]]" # cut "1"]
+
+d1 $ slow 4 $ sound "[[rave rave] rave] ~ rave ~" # legato "4"
+
+d1 $ slow 2 $ up "9 5 3 4 4 1 2" # sound "arpy"
+
+d1 $ slow 2 $ s "bd bd bd bd bd bd [bd bd bd bd] [bd bd bd bd]"
+
+d1 $ slow 2 $ s "casio [casio*2] ~ ~" # speed "<0.4 0.6>"
+
+d1 $ s "casio hh ~ hh" # speed "<0.2 0.3 0.45 0.45 0.3>"
