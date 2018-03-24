@@ -36,7 +36,7 @@ extra-deps:
   - vivid-0.3.0.2
   - vivid-osc-0.3.0.0
   - vivid-supercollider-0.3.0.0
-  - tidal-0.9.4
+  - tidal-0.8.2
        
   #- tidal-midi-0.9.4
   #- tidal-0.9.4

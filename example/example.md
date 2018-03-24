@@ -3,11 +3,18 @@ music
 
 [![Build Status](https://travis-ci.org/tonyday567/music.svg)](https://travis-ci.org/tonyday567/music) [![Hackage](https://img.shields.io/hackage/v/music.svg)](https://hackage.haskell.org/package/music) [![lts](https://www.stackage.org/package/music/badge/lts)](http://stackage.org/lts/package/music) [![nightly](https://www.stackage.org/package/music/badge/nightly)](http://stackage.org/nightly/package/music) 
 
-to test from scratch
+
+tidal
+--
+
+Super Collider needs to be on an listening:
 
 double-click SuperCollider.app
 
-run ./other/start.scd
+startup script is here:
+
+  ~/Library/Application Support/SuperCollider/startup.scd
+
 
 results
 ---
