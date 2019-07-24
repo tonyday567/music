@@ -13,6 +13,10 @@ double-click SuperCollider.app
 
 startup script is here:
 
+  ../other/start.scd
+
+but maybe here if this is the default:
+
   ~/Library/Application Support/SuperCollider/startup.scd
 
 
