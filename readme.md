@@ -24,11 +24,14 @@ results
 ---
 
 ```
-#stack build --test --exec "$(stack path --local-install-root)/bin/music-example" 
-music-example: Network.Socket.bind: resource busy (Address already in use)
-👍
+stack build --test --exec "$(stack path --local-install-root)/bin/music-example" 
 ```
 
+```
+music-0.0.1: Test suite test passed
+Listening for controls on 127.0.0.1:6010
+Failed to send. Is the 'SuperDirt' target running? Network.Socket.sendBuf: does not exist (Connection refused)
+```
 
 old tidal notes
 ===

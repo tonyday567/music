@@ -10,7 +10,7 @@
 #
 # resolver: lts-3.5
 # resolver: nightly-2015-09-21
-resolver: lts-9.8
+resolver: lts-13.29 # lts-9.8
 
 packages:
   - .
@@ -25,7 +25,7 @@ extra-deps:
     commit: d9794700eef63f9c01bc5e313672085e0ad65569
   - PortMidi-0.1.5.2
   - UISF-0.4.0.0
-  - arrows-0.4.4.1
+  - arrows-0.4.4.2
   - pure-fft-0.2.0
   - Stream-0.4.7.2
   - lazysmallcheck-0.6
@@ -33,10 +33,10 @@ extra-deps:
   - lazy-csv-0.5.1
   - multiset-comb-0.2.4.1
   - permutation-0.5.0.5
-  - vivid-0.3.0.2
-  - vivid-osc-0.3.0.0
-  - vivid-supercollider-0.3.0.0
-  - tidal-0.8.2
+  - vivid-0.4.2.3
+  - vivid-osc-0.5.0.0
+  - vivid-supercollider-0.4.1.2
+  - tidal-1.1.0
        
   #- tidal-midi-0.9.4
   #- tidal-0.9.4
