@@ -24,10 +24,7 @@ addons:
   apt:
     packages:
       - libgmp-dev
-      - linux-sound-base
-      - alsa-base
-      - alsa-utils
-      #- sounda-dev
+      - libasound2-dev
 
 before_install:
 # Download and unpack the stack executable
