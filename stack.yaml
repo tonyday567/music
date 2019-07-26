@@ -42,3 +42,4 @@ extra-deps:
   #- tidal-0.9.4
   #- PortMidi-0.1.6.0
 
+allow-newer: true
