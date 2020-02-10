@@ -10,7 +10,7 @@
 #
 # resolver: lts-3.5
 # resolver: nightly-2015-09-21
-resolver: lts-13.29 # lts-9.8
+resolver: lts-14.13 # lts-9.8
 
 packages:
   - .
@@ -19,10 +19,6 @@ packages:
   # - ../Tidal
 
 extra-deps:
-  - git: https://github.com/tonyday567/Euterpea2.git
-    commit: cb765cb326e718b9fedb8c33c493150e6bf6faff
-  - git: https://github.com/tonyday567/HSoM.git
-    commit: d9794700eef63f9c01bc5e313672085e0ad65569
   - PortMidi-0.1.5.2
   - UISF-0.4.0.0
   - arrows-0.4.4.2
@@ -37,9 +33,5 @@ extra-deps:
   - vivid-osc-0.5.0.0
   - vivid-supercollider-0.4.1.2
   - tidal-1.1.0
-       
-  #- tidal-midi-0.9.4
-  #- tidal-0.9.4
-  #- PortMidi-0.1.6.0
 
 allow-newer: true

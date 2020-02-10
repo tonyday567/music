@@ -24,7 +24,7 @@ results
 ---
 
 ```
-stack build --test --exec "$(stack path --local-install-root)/bin/music-example" 
+stack build --exec "$(stack path --local-install-root)/bin/music-example" 
 ```
 
 ```

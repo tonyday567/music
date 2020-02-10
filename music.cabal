@@ -31,15 +31,11 @@ library
   hs-source-dirs:      
     src
   exposed-modules:
-    Music,
-    VividEuterpea 
+    Music
   build-depends:
     base >= 4.7 && < 5,
     protolude,
     tidal,
-    Euterpea,
-    HSoM,
-    vivid,
     deepseq,
     containers,
     HCodecs
@@ -96,62 +92,7 @@ executable music-example
     music,
     protolude,
     tidal,
-    Euterpea,
-    HSoM,
-    vivid,
     HCodecs
-  default-extensions:
-    NoImplicitPrelude,
-    UnicodeSyntax,
-    BangPatterns,
-    BinaryLiterals,
-    DeriveFoldable,
-    DeriveFunctor,
-    DeriveGeneric,
-    DeriveTraversable,
-    DisambiguateRecordFields,
-    EmptyCase,
-    FlexibleContexts,
-    FlexibleInstances,
-    FunctionalDependencies,
-    GADTSyntax,
-    InstanceSigs,
-    KindSignatures,
-    LambdaCase,
-    MonadComprehensions,
-    MultiParamTypeClasses,
-    MultiWayIf,
-    NegativeLiterals,
-    OverloadedStrings,
-    ParallelListComp,
-    PartialTypeSignatures,
-    PatternSynonyms,
-    RankNTypes,
-    RecordWildCards,
-    RecursiveDo,
-    ScopedTypeVariables,
-    TupleSections,
-    TypeFamilies,
-    TypeOperators
-
-test-suite test
-  default-language:
-    Haskell2010
-  type:
-    exitcode-stdio-1.0
-  hs-source-dirs:
-    test
-  main-is:
-    test.hs
-  build-depends:
-    base >= 4.7 && < 5,
-    tasty,
-    HUnit,
-    tasty-hunit,
-    QuickCheck,
-    tasty-quickcheck,
-    doctest,
-    protolude
   default-extensions:
     NoImplicitPrelude,
     UnicodeSyntax,

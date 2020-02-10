@@ -1,13 +1,15 @@
 -- evaluate other/tidal.el
+-- (setq tidal-boot-script-path "BootTidal.hs")
 -- tidal-mode
+-- tidal-start-haskell
 
 hush
 d1 silence
 
-
 -- see merge and #
 -- could usefully make <> and be done wth it
 -- these combinators seem to be like zip with respect to params, dropping excess pattern elements
+
 d1 $ sound "drum drum" # speed "0.6 0.4 0.8 0.6"
 d1 $ s' "drum drum" # n "0 1" # speed "0.6 0.4"
 
