@@ -1,3 +1,4 @@
+cabal-version: 2.4
 name: music
 version: 0.0.1
 synopsis:
@@ -9,7 +10,7 @@ category:
 homepage:
   https://github.com/tonyday567/music
 license:
-  BSD3
+  BSD-3-Clause
 license-file:
   LICENSE
 author:
@@ -20,61 +21,40 @@ copyright:
   Tony Day (c) 2017
 build-type:
   Simple
-cabal-version:
-  >=1.14
 extra-source-files:
   stack.yaml
+source-repository head
+  type:
+    git
+  location:
+    https://github.com/tonyday567/music
+
 library
   default-language:
     Haskell2010
-  ghc-options:
   hs-source-dirs:      
     src
   exposed-modules:
     Music
   build-depends:
     base >= 4.7 && < 5,
-    protolude,
-    tidal,
+    numhask >= 0.6 && < 0.7,
+    tidal >= 1.6 && < 1.7,
     deepseq,
     containers,
-    HCodecs
- 
   default-extensions:
-    NoImplicitPrelude,
-    UnicodeSyntax,
-    BangPatterns,
-    BinaryLiterals,
-    DeriveFoldable,
-    DeriveFunctor,
-    DeriveGeneric,
-    DeriveTraversable,
-    DisambiguateRecordFields,
-    EmptyCase,
-    FlexibleContexts,
-    FlexibleInstances,
-    FunctionalDependencies,
-    GADTSyntax,
-    InstanceSigs,
-    KindSignatures,
-    LambdaCase,
-    MonadComprehensions,
-    MultiParamTypeClasses,
-    MultiWayIf,
-    NegativeLiterals,
-    OverloadedStrings,
-    ParallelListComp,
-    PartialTypeSignatures,
-    PatternSynonyms,
-    RankNTypes,
-    RecordWildCards,
-    RecursiveDo,
-    ScopedTypeVariables,
-    TupleSections,
-    TypeFamilies,
-    TypeOperators
+    NoImplicitPrelude
+    NegativeLiterals
+    OverloadedStrings
+    UnicodeSyntax
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
 
-executable music-example
+executable music
   default-language:
     Haskell2010
   ghc-options:
@@ -84,51 +64,22 @@ executable music-example
     -rtsopts
     -with-rtsopts=-N
   hs-source-dirs:
-    example
+    app
   main-is:
-    example.hs
+    music.hs
   build-depends:
     base >= 4.7 && < 5,
     music,
-    protolude,
-    tidal,
-    HCodecs
+    numhask >= 0.6 && < 0.7,
+    tidal >= 1.6 && < 1.7,
   default-extensions:
-    NoImplicitPrelude,
-    UnicodeSyntax,
-    BangPatterns,
-    BinaryLiterals,
-    DeriveFoldable,
-    DeriveFunctor,
-    DeriveGeneric,
-    DeriveTraversable,
-    DisambiguateRecordFields,
-    EmptyCase,
-    FlexibleContexts,
-    FlexibleInstances,
-    FunctionalDependencies,
-    GADTSyntax,
-    InstanceSigs,
-    KindSignatures,
-    LambdaCase,
-    MonadComprehensions,
-    MultiParamTypeClasses,
-    MultiWayIf,
-    NegativeLiterals,
-    OverloadedStrings,
-    ParallelListComp,
-    PartialTypeSignatures,
-    PatternSynonyms,
-    RankNTypes,
-    RecordWildCards,
-    RecursiveDo,
-    ScopedTypeVariables,
-    TupleSections,
-    TypeFamilies,
-    TypeOperators
-
-source-repository head
-  type:
-    git
-  location:
-    https://github.com/tonyday567/music
+    NoImplicitPrelude
+    NegativeLiterals
+    OverloadedStrings
+    UnicodeSyntax
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints

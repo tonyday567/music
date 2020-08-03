@@ -1,0 +1,35 @@
+-- juxrev2power
+-- start-haskell C-c C-s
+-- runline C-c C-c
+-- run multiple lines C-c C-e
+
+hush
+d1 silence
+
+d1
+  $ slow 0.5
+  $ jux rev
+  $ sound "gummiVox:4"
+
+d2
+  $ slow 0.5
+  $ sound "bd sn*2 can [~ bd]"
+
+d3
+  $ slow 1
+  $ sound "bd hh*2 can [~ arpy:7]"
+
+d4
+  $ slow 1
+  $ jux rev
+  $ sound "arpy sn*2 can [~ arpy:7 arpy:3]"
+
+d5
+  $ slow 2
+  $ sound "bd hh*2 can [~ can]"
+
+d6
+  $ slow 1
+  $ jux rev
+  $ sound "gummiVox:5 [gummiVox:4 gummiVox:5]"
+

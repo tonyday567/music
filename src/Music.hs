@@ -1,6 +1,6 @@
 module Music where
 
-import Protolude
+import NumHask.Prelude
 import Sound.Tidal.Context
 
 -- import HSoM

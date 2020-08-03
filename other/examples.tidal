@@ -1,7 +1,6 @@
--- evaluate other/tidal.el
--- (setq tidal-boot-script-path "BootTidal.hs")
--- tidal-mode
--- tidal-start-haskell
+-- start-haskell C-c C-s
+-- runline C-c C-c
+-- run multiple lines C-c C-e
 
 hush
 d1 silence
@@ -13,7 +12,7 @@ d1 silence
 d1 $ sound "drum drum" # speed "0.6 0.4 0.8 0.6"
 d1 $ s' "drum drum" # n "0 1" # speed "0.6 0.4"
 
-d1 $ sound "voodoo:6 drum:2 drum:1 [~ voodoo:6]" |+|
+d1 $ sound "voodoo:6 drum:2 hh:1 [~ voodoo:5]" |+|
      speed "0.3 0.2 0.4 0.3" |+|
      vowel "o" |+|
      shape "0.05 0.2 0.4 0.6" |+|
@@ -23,7 +22,7 @@ d1 $ sound "[can cp, can bd can:5]"
 
 d1 $ sound "{can can:2, can bd can:5}"
 
-d1 $ sound "{[can can] cp, can bd can:5, arpy arpy:2 ~ [arpy:4 arpy:5] arpy:5}"
+d1 $ slow 0.333 $ sound "{[can can] cp, can bd can:5, arpy arpy:2 ~ [arpy:4 arpy:5] arpy:5}"
 
 d1 $ sound "bd can*32 bd can*16"
 
@@ -45,9 +44,25 @@ d1 $ rev $ chop 128 $ sound "bd ~ sn bd ~ [~ bd]/2 [sn [~ bd]/2] ~"
 
 d1 $ slow 4 $ chop 64 $ sound "breaks125"
 
-d1 $ every 3 (chop 16) $ sound "bd can sn can:4"
+d2 $ every 3 (chop 16) $ sound "bd can sn can:4"
 
-d1 $ jux rev $ sound "bd sn*2 can [~ arpy]"
+d1 $ slow 0.5 $ jux rev $ sound "bd sn*2 can [~ arpy:7]"
+
+d2 $ slow 0.5 $ sound "bd sn*2 can [~ bd]"
+
+d3 $ slow 1 $ sound "bd hh*2 can [~ arpy:7]"
+
+d4 $ slow 1 $ jux rev $ sound "arpy sn*2 can [~ arpy:7 arpy:3]"
+
+d3 $ slow 2 $ sound "arpy sn*2 can [~ arpy:7 arpy:3]"
+
+d5 $ slow 2 $ sound "bd hh*2 can [~ can]"
+
+d6 $ slow 2 $ jux rev $ sound "arpy sn*2 can [~ arpy:7]"
+
+d2 silence
+
+hush
 
 d1 $ weave 16 (pan sine1) [sound "bd sn", sound "arpy ~ arpy:3", sound "can ~ ~ can:4"]
 
@@ -168,3 +183,28 @@ d1 $ slow 2 $ s "bd bd bd bd bd bd [bd bd bd bd] [bd bd bd bd]"
 d1 $ slow 2 $ s "casio [casio*2] ~ ~" # speed "<0.4 0.6>"
 
 d1 $ s "casio hh ~ hh" # speed "<0.2 0.3 0.45 0.45 0.3>"
+
+hush
+
+
+d1
+  $ loopAt 6
+  $ sometimes (#speed 0.5)
+  $ striate 10
+  $ s "bev*8"
+  # legato "1"
+  # shape "0.7"
+
+d2
+  $ s "tbd:2(3,5)"
+
+d3
+  $ s "hh*5"
+
+d4
+  $ sometimes (|+| accelerate "2 0")
+  $ s "amencutup*16"
+  # n (irand 12)
+  
+
+hush

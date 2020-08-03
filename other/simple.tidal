@@ -1,0 +1,120 @@
+-- start-haskell C-c C-s
+-- runline C-c C-c
+-- run multiple lines C-c C-e
+
+hush
+d1 silence
+
+
+
+
+d1
+  $ striate 4
+  $ density 2
+  $ stack[
+  s "touchVox*8",
+  s "touchVox*2"
+         ]
+  # legato "1"
+
+
+-- STARTTTTTTTTTT THE
+
+-- kim note,, if anyone makes fun of my slow typing i will literally cry
+
+d1
+  $ loopAt 2
+  $ sometimes (# speed "-1.1")
+  $ rarely (|*| accelerate "0 1.2 2")
+  $ striate 32
+  $ s "touchVox:1*8"
+  # cut "1"
+  # speed "-1"
+
+
+d1
+  $ s "gabba*4"
+
+
+hush
+the quick brown fox jumped over the lazy dog
+
+
+
+
+d2
+  $ s "gabba*4"
+
+  
+d1
+  $ rarely (|*| accelerate "0.5 2 1")
+  $ sometimes (# speed 1.2)
+  $ loopAt 8
+  $ striate 4
+  $ s "touchVox:1*4"
+  # cut "1"
+
+
+
+
+
+d1
+  $ s "bd*4 <bd*8>"
+
+
+  d1 $ silence
+
+
+
+
+
+
+hush
+
+
+d1
+  $ loopAt 10
+  $ striate 2
+  $ s "gummiVox:2*8"
+  # cut "1"
+  # speed "-1"
+
+
+d1
+  $ loopAt 2
+  $ striate 5
+  $ s "gummiVox:2*8"
+  # cut "1"
+
+d2
+  $ loopAt 2
+  $ striate 3
+  $ s "touchVox*5"
+  # cut "1"
+  # shape "0.8"
+
+d3
+  $ striate 12
+  $ s "touchSaw:1*6"
+  # legato "1"
+
+d1
+  $ loopAt 6
+  $ sometimes (#speed 0.5)
+  $ striate 10
+  $ s "bev*8"
+  # legato "1"
+  # shape "0.7"
+
+d2
+  $ s "tbd:2(3,5)"
+
+d3
+  $ s "hh*5"
+
+d4
+  $ sometimes (|+| accelerate "2 0")
+  $ s "amencutup*16"
+  # n (irand 12)
+
+hush

@@ -4,33 +4,32 @@ music
 [![Build Status](https://travis-ci.org/tonyday567/music.svg)](https://travis-ci.org/tonyday567/music) [![Hackage](https://img.shields.io/hackage/v/music.svg)](https://hackage.haskell.org/package/music) [![lts](https://www.stackage.org/package/music/badge/lts)](http://stackage.org/lts/package/music) [![nightly](https://www.stackage.org/package/music/badge/nightly)](http://stackage.org/nightly/package/music) 
 
 
-tidal
+tidal startup
 --
 
 Super Collider needs to be on an listening:
 
 double-click SuperCollider.app
 
-startup script is here:
+```
+SuperDirt.start
+```
 
-  ../other/start.scd
+startup script with a few other commands: other/start.scd
 
 but maybe here if this is the default:
 
   ~/Library/Application Support/SuperCollider/startup.scd
 
-
 results
 ---
 
 ```
-stack build --exec "$(stack path --local-install-root)/bin/music-example" 
+stack build --test --exec "$(stack path --local-install-root)/bin/music-example"
 ```
 
 ```
-music-0.0.1: Test suite test passed
-Listening for controls on 127.0.0.1:6010
-Failed to send. Is the 'SuperDirt' target running? Network.Socket.sendBuf: does not exist (Connection refused)
+music-example: Network.Socket.bind: resource busy (Address already in use)
 ```
 
 old tidal notes
